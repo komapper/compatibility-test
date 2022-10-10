@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  java11:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up JDK 11
+      - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
@@ -31,6 +31,43 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 6.7.1
+          arguments: |
+            assemble
+            check
+            -PkomapperVersion=${{ matrix.komapper }}
+            -PkotlinVersion=${{ matrix.kotlin }}
+            -PkspVersion=${{ matrix.ksp }}
+
+      - name: Upload reports
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: ./**/build/reports
+
+  java17:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        komapper: [ 1.3.0, 1.4.0 ]
+        kotlin: [ 1.6.21, 1.7.0, 1.7.10, 1.7.20 ]
+        ksp: [ 1.0.6 ]
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17
+
+      - name: Assemble and Check
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 7.3.3
           arguments: |
             assemble
             check
