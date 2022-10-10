@@ -10,6 +10,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        komapper: [ 1.2.0, 1.3.0, 1.4.0 ]
+        kotlin: [ 1.6.21, 1.7.0, 1.7.10, 1.7.20 ]
+        ksp: [ 1.0.6 ]
     timeout-minutes: 10
 
     steps:
@@ -24,7 +30,12 @@ jobs:
       - name: Assemble and Check
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: assemble check
+          arguments: |
+            assemble
+            check
+            -PkomapperVersion=${{ matrix.komapper }}
+            -PkotlinVersion=${{ matrix.kotlin }}
+            -PkspVersion=${{ matrix.ksp }}
 
       - name: Upload reports
         if: failure()
