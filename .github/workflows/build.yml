@@ -30,7 +30,7 @@ jobs:
       - name: Assemble and Check
         uses: gradle/gradle-build-action@v2
         with:
-          gradle-version: 6.5
+          gradle-version: 6.7.1
           arguments: |
             assemble
             check
