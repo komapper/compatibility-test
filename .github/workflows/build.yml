@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  java11:
+  ksp-1_0_6:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -45,14 +45,14 @@ jobs:
           name: build
           path: ./**/build/reports
 
-  java17:
+  ksp-1_0_7:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         komapper: [ 1.3.0, 1.4.0 ]
-        kotlin: [ 1.6.21, 1.7.0, 1.7.10, 1.7.20 ]
-        ksp: [ 1.0.6 ]
+        kotlin: [ 1.7.20 ]
+        ksp: [ 1.0.7 ]
     timeout-minutes: 10
 
     steps:
@@ -62,12 +62,12 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: 17
+          java-version: 11
 
       - name: Assemble and Check
         uses: gradle/gradle-build-action@v2
         with:
-          gradle-version: 7.3.3
+          gradle-version: 6.7.1
           arguments: |
             assemble
             check
