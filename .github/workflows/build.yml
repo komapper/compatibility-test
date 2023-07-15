@@ -50,7 +50,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        komapper: [ 1.3.0, 1.4.0, 1.5.0, 1.6.1, 1.7.1, 1.8.0, 1.9.0, 1.10.0, 1.11.0 ]
+        komapper: [ 1.3.0, 1.4.0, 1.5.0, 1.6.1, 1.7.1, 1.8.0, 1.9.0, 1.10.0, 1.11.0, 1.12.0 ]
         kotlin: [ 1.7.22 ]
         ksp: [ 1.0.8 ]
     timeout-minutes: 10
@@ -82,124 +82,13 @@ jobs:
           name: build
           path: ./**/build/reports
 
-  kotlin-1_8_0-ksp-1_0_8:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        komapper: [ 1.3.0, 1.4.0, 1.5.0, 1.6.1, 1.7.1, 1.8.0, 1.9.0, 1.10.0, 1.11.0 ]
-        kotlin: [ 1.8.0 ]
-        ksp: [ 1.0.8 ]
-    timeout-minutes: 10
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: 11
-
-      - name: Assemble and Check
-        uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: 6.8.3
-          arguments: |
-            assemble
-            check
-            -PkomapperVersion=${{ matrix.komapper }}
-            -PkotlinVersion=${{ matrix.kotlin }}
-            -PkspVersion=${{ matrix.ksp }}
-
-      - name: Upload reports
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: build
-          path: ./**/build/reports
-
-  ksp-1_0_9:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        komapper: [ 1.3.0, 1.4.0, 1.5.0, 1.6.1, 1.7.1, 1.8.0, 1.9.0, 1.10.0, 1.11.0 ]
-        kotlin: [ 1.8.0, 1.8.10 ]
-        ksp: [ 1.0.9 ]
-    timeout-minutes: 10
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: 11
-
-      - name: Assemble and Check
-        uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: 6.8.3
-          arguments: |
-            assemble
-            check
-            -PkomapperVersion=${{ matrix.komapper }}
-            -PkotlinVersion=${{ matrix.kotlin }}
-            -PkspVersion=${{ matrix.ksp }}
-
-      - name: Upload reports
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: build
-          path: ./**/build/reports
-
-  ksp-1_0_10:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        komapper: [ 1.3.0, 1.4.0, 1.5.0, 1.6.1, 1.7.1, 1.8.0, 1.9.0, 1.10.0, 1.11.0 ]
-        kotlin: [ 1.8.20 ]
-        ksp: [ 1.0.10 ]
-    timeout-minutes: 10
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: 11
-
-      - name: Assemble and Check
-        uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: 6.8.3
-          arguments: |
-            assemble
-            check
-            -PkomapperVersion=${{ matrix.komapper }}
-            -PkotlinVersion=${{ matrix.kotlin }}
-            -PkspVersion=${{ matrix.ksp }}
-
-      - name: Upload reports
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: build
-          path: ./**/build/reports
-
   ksp-1_0_11:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        komapper: [ 1.3.0, 1.4.0, 1.5.0, 1.6.1, 1.7.1, 1.8.0, 1.9.0, 1.10.0, 1.11.0 ]
-        kotlin: [ 1.8.20, 1.8.21, 1.8.22 ]
+        komapper: [ 1.3.0, 1.4.0, 1.5.0, 1.6.1, 1.7.1, 1.8.0, 1.9.0, 1.10.0, 1.11.0, 1.12.0 ]
+        kotlin: [ 1.8.22, 1.9.0 ]
         ksp: [ 1.0.11 ]
     timeout-minutes: 10
 
