@@ -124,8 +124,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        kotlin: [ 2.0.0 ]
-        ksp: [ 1.0.24 ]
+        kotlin: [ 2.0.20 ]
+        ksp: [ 1.0.25 ]
         komapper: [ 1.18.1, 2.0.0, 2.1.0, 2.2.2, 3.0.0 ]
     timeout-minutes: 10
 
