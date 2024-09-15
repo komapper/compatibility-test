@@ -104,7 +104,7 @@ jobs:
       - name: Assemble and Check
         uses: gradle/gradle-build-action@v2
         with:
-          gradle-version: 6.8.3
+          gradle-version: 7.6.4
           arguments: |
             assemble
             check
@@ -141,7 +141,7 @@ jobs:
       - name: Assemble and Check
         uses: gradle/gradle-build-action@v2
         with:
-          gradle-version: 6.8.3
+          gradle-version: 7.6.4
           arguments: |
             assemble
             check
