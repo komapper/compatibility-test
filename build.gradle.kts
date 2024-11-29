@@ -2,35 +2,16 @@ plugins {
     idea
     java
     kotlin("jvm")
-    id("com.diffplug.spotless")
     id("com.google.devtools.ksp")
 }
 
 val komapperVersion: String by project
-val ktlintVersion: String by project
 
 allprojects {
     apply(plugin = "base")
-    apply(plugin = "com.diffplug.spotless")
-
-    spotless {
-        kotlin {
-            ktlint(ktlintVersion)
-            targetExclude("build/**")
-        }
-        kotlinGradle {
-            ktlint(ktlintVersion)
-        }
-    }
 
     repositories {
         mavenCentral()
-    }
-
-    tasks {
-        build {
-            dependsOn(spotlessApply)
-        }
     }
 }
 
