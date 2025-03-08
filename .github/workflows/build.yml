@@ -52,7 +52,7 @@ jobs:
       matrix:
         kotlin: [ 2.0.21 ]
         ksp: [ 1.0.28 ]
-        komapper: [ 2.0.0, 2.1.0, 2.2.2, 3.1.0, 4.0.0, 5.0.0, 5.1.0, 5.2.0 ]
+        komapper: [ 2.0.0, 2.1.0, 2.2.2, 3.1.0, 4.0.0, 5.0.0, 5.1.0, 5.2.1 ]
     timeout-minutes: 10
 
     steps:
@@ -89,7 +89,7 @@ jobs:
       matrix:
         kotlin: [ 2.0.21 ]
         ksp: [ 1.0.28 ]
-        komapper: [ 2.0.0, 2.1.0, 2.2.2, 3.1.0, 4.0.0, 5.0.0, 5.1.0, 5.2.0 ]
+        komapper: [ 2.0.0, 2.1.0, 2.2.2, 3.1.0, 4.0.0, 5.0.0, 5.1.0, 5.2.1 ]
     timeout-minutes: 10
 
     steps:
@@ -126,8 +126,8 @@ jobs:
       fail-fast: false
       matrix:
         kotlin: [ 2.1.10 ]
-        ksp: [ 1.0.29 ]
-        komapper: [ 5.0.0, 5.1.0, 5.2.0 ]
+        ksp: [ 1.0.31 ]
+        komapper: [ 5.0.0, 5.1.0, 5.2.1 ]
     timeout-minutes: 10
 
     steps:
