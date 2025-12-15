@@ -28,7 +28,7 @@ jobs:
           java-version: 11
 
       - name: Assemble and Check
-        uses: gradle/gradle-build-action@a8f75513eafdebd8141bd1cd4e30fcd194af8dfa # v2
+        uses: gradle/gradle-build-action@ac2d340dc04d9e1113182899e983b5400c17cda1 # v3
         with:
           gradle-version: 6.8.3
           arguments: |
@@ -65,7 +65,7 @@ jobs:
           java-version: 11
 
       - name: Assemble and Check
-        uses: gradle/gradle-build-action@a8f75513eafdebd8141bd1cd4e30fcd194af8dfa # v2
+        uses: gradle/gradle-build-action@ac2d340dc04d9e1113182899e983b5400c17cda1 # v3
         with:
           gradle-version: 7.6.4
           arguments: |
@@ -102,7 +102,7 @@ jobs:
           java-version: 11
 
       - name: Assemble and Check
-        uses: gradle/gradle-build-action@a8f75513eafdebd8141bd1cd4e30fcd194af8dfa # v2
+        uses: gradle/gradle-build-action@ac2d340dc04d9e1113182899e983b5400c17cda1 # v3
         with:
           gradle-version: 7.6.4
           arguments: |
@@ -140,7 +140,7 @@ jobs:
           java-version: 11
 
       - name: Assemble and Check
-        uses: gradle/gradle-build-action@a8f75513eafdebd8141bd1cd4e30fcd194af8dfa # v2
+        uses: gradle/gradle-build-action@ac2d340dc04d9e1113182899e983b5400c17cda1 # v3
         with:
           gradle-version: 7.6.4
           arguments: |
