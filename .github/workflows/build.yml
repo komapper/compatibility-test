@@ -278,7 +278,9 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
         with:
-          gradle-version: 7.6.4
+          # Standalone KSP (2.3.0+) needs Gradle 8.2+: the Kotlin DSL in older
+          # Gradle cannot read the KSP plugin jar's Kotlin 2.3 metadata.
+          gradle-version: 8.2.1
 
       - name: Assemble and Check
         run: >
@@ -319,7 +321,9 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
         with:
-          gradle-version: 7.6.4
+          # Standalone KSP (2.3.0+) needs Gradle 8.2+: the Kotlin DSL in older
+          # Gradle cannot read the KSP plugin jar's Kotlin 2.3 metadata.
+          gradle-version: 8.2.1
 
       - name: Assemble and Check
         run: >
@@ -360,7 +364,9 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
         with:
-          gradle-version: 7.6.4
+          # Standalone KSP (2.3.0+) needs Gradle 8.2+: the Kotlin DSL in older
+          # Gradle cannot read the KSP plugin jar's Kotlin 2.3 metadata.
+          gradle-version: 8.2.1
 
       - name: Assemble and Check
         run: >
