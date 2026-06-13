@@ -8,6 +8,7 @@ plugins {
 }
 
 val komapperVersion: String by project
+val jvmTargetVersion: String by project
 
 allprojects {
     apply(plugin = "base")
@@ -21,6 +22,11 @@ subprojects {
     apply(plugin = "idea")
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "com.google.devtools.ksp")
+
+    extensions.configure<JavaPluginExtension> {
+        sourceCompatibility = JavaVersion.toVersion(jvmTargetVersion)
+        targetCompatibility = JavaVersion.toVersion(jvmTargetVersion)
+    }
 
     dependencies {
         platform("org.komapper:komapper-platform:$komapperVersion").let {
@@ -43,7 +49,7 @@ subprojects {
 
         withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
             compilerOptions {
-                jvmTarget.set(JvmTarget.JVM_11)
+                jvmTarget.set(JvmTarget.fromTarget(jvmTargetVersion))
             }
         }
     }
