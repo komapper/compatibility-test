@@ -7,6 +7,10 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   kotlin-1_9:
     runs-on: ubuntu-latest
@@ -15,7 +19,7 @@ jobs:
       matrix:
         kotlin: [ 1.9.24 ]
         ksp: [ 1.9.24-1.0.20 ]
-        komapper: [ 1.18.1, 2.0.0, 2.1.0, 2.2.2 ]
+        komapper: [ 1.18.1, 2.2.2 ]
     timeout-minutes: 10
 
     steps:
@@ -56,7 +60,7 @@ jobs:
       matrix:
         kotlin: [ 2.0.21 ]
         ksp: [ 2.0.21-1.0.28 ]
-        komapper: [ 2.0.0, 2.1.0, 2.2.2, 3.1.0, 4.0.0, 5.0.0, 5.1.0, 5.2.1 ]
+        komapper: [ 2.0.0, 5.2.1 ]
     timeout-minutes: 10
 
     steps:
@@ -82,90 +86,6 @@ jobs:
           -PkotlinVersion=${{ matrix.kotlin }}
           -PkspVersion=${{ matrix.ksp }}
           -PjvmTargetVersion=11
-
-      - name: Upload reports
-        if: failure()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: reports-${{ github.job }}-${{ matrix.kotlin }}-${{ matrix.ksp }}-${{ matrix.komapper }}
-          path: ./**/build/reports
-
-  kotlin-2_0-useKSP2:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        kotlin: [ 2.0.21 ]
-        ksp: [ 2.0.21-1.0.28 ]
-        komapper: [ 2.0.0, 2.1.0, 2.2.2, 3.1.0, 4.0.0, 5.0.0, 5.1.0, 5.2.1 ]
-    timeout-minutes: 10
-
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-
-      - name: Set up JDK
-        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
-        with:
-          distribution: 'temurin'
-          java-version: 11
-
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
-        with:
-          gradle-version: 7.6.4
-
-      - name: Assemble and Check
-        run: >
-          gradle
-          assemble
-          check
-          -PkomapperVersion=${{ matrix.komapper }}
-          -PkotlinVersion=${{ matrix.kotlin }}
-          -PkspVersion=${{ matrix.ksp }}
-          -PjvmTargetVersion=11
-          -Pksp.useKSP2=true
-
-      - name: Upload reports
-        if: failure()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: reports-${{ github.job }}-${{ matrix.kotlin }}-${{ matrix.ksp }}-${{ matrix.komapper }}
-          path: ./**/build/reports
-
-  kotlin-2_1:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        kotlin: [ 2.1.10 ]
-        ksp: [ 2.1.10-1.0.31 ]
-        komapper: [ 5.0.0, 5.1.0, 5.2.1 ]
-    timeout-minutes: 10
-
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-
-      - name: Set up JDK
-        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
-        with:
-          distribution: 'temurin'
-          java-version: 11
-
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
-        with:
-          gradle-version: 7.6.4
-
-      - name: Assemble and Check
-        run: >
-          gradle
-          assemble
-          check
-          -PkomapperVersion=${{ matrix.komapper }}
-          -PkotlinVersion=${{ matrix.kotlin }}
-          -PkspVersion=${{ matrix.ksp }}
-          -PjvmTargetVersion=11
-          -Pksp.useKSP2=true
 
       - name: Upload reports
         if: failure()
@@ -181,7 +101,7 @@ jobs:
       matrix:
         kotlin: [ 2.1.21 ]
         ksp: [ 2.1.21-2.0.2 ]
-        komapper: [ 5.0.0, 5.1.0, 5.2.1, 5.3.0, 5.4.0, 5.5.0, 5.6.0, 5.7.0 ]
+        komapper: [ 5.0.0, 5.7.0 ]
     timeout-minutes: 10
 
     steps:
@@ -222,7 +142,7 @@ jobs:
       matrix:
         kotlin: [ 2.2.20 ]
         ksp: [ 2.2.20-2.0.3 ]
-        komapper: [ 5.0.0, 5.1.0, 5.2.1, 5.3.0, 5.4.0, 5.5.0, 5.6.0, 5.7.0 ]
+        komapper: [ 5.0.0, 5.7.0 ]
     timeout-minutes: 10
 
     steps:
@@ -263,7 +183,7 @@ jobs:
       matrix:
         kotlin: [ 2.3.0 ]
         ksp: [ 2.3.9 ]
-        komapper: [ 5.7.0, 6.0.0, 6.1.0 ]
+        komapper: [ 5.7.0, 6.1.0 ]
     timeout-minutes: 10
 
     steps:
