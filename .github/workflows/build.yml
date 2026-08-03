@@ -32,7 +32,7 @@ jobs:
           java-version: 11
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
+        uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
         with:
           gradle-version: 6.8.3
 
@@ -73,7 +73,7 @@ jobs:
           java-version: 11
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
+        uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
         with:
           gradle-version: 7.6.4
 
@@ -114,7 +114,7 @@ jobs:
           java-version: 11
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
+        uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
         with:
           gradle-version: 7.6.4
 
@@ -155,7 +155,7 @@ jobs:
           java-version: 11
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
+        uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
         with:
           gradle-version: 7.6.4
 
@@ -196,7 +196,7 @@ jobs:
           java-version: 11
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
+        uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
         with:
           # Standalone KSP (2.3.0+) needs Gradle 8.2+: the Kotlin DSL in older
           # Gradle cannot read the KSP plugin jar's Kotlin 2.3 metadata.
@@ -239,7 +239,7 @@ jobs:
           java-version: 17
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
+        uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
         with:
           # Standalone KSP (2.3.0+) needs Gradle 8.2+: the Kotlin DSL in older
           # Gradle cannot read the KSP plugin jar's Kotlin 2.3 metadata.
@@ -282,7 +282,7 @@ jobs:
           java-version: 17
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
+        uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
         with:
           # Standalone KSP (2.3.0+) needs Gradle 8.2+: the Kotlin DSL in older
           # Gradle cannot read the KSP plugin jar's Kotlin 2.3 metadata.
