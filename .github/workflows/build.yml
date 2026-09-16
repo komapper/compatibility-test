@@ -200,7 +200,7 @@ jobs:
         with:
           # Standalone KSP (2.3.0+) needs Gradle 8.2+: the Kotlin DSL in older
           # Gradle cannot read the KSP plugin jar's Kotlin 2.3 metadata.
-          gradle-version: 8.2.1
+          gradle-version: 8.14.5
 
       - name: Assemble and Check
         run: >
@@ -243,7 +243,7 @@ jobs:
         with:
           # Standalone KSP (2.3.0+) needs Gradle 8.2+: the Kotlin DSL in older
           # Gradle cannot read the KSP plugin jar's Kotlin 2.3 metadata.
-          gradle-version: 8.2.1
+          gradle-version: 8.14.5
 
       - name: Assemble and Check
         run: >
@@ -286,7 +286,7 @@ jobs:
         with:
           # Standalone KSP (2.3.0+) needs Gradle 8.2+: the Kotlin DSL in older
           # Gradle cannot read the KSP plugin jar's Kotlin 2.3 metadata.
-          gradle-version: 8.2.1
+          gradle-version: 8.14.5
 
       - name: Assemble and Check
         run: >
