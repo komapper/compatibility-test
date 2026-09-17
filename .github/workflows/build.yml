@@ -34,7 +34,7 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
         with:
-          gradle-version: 6.9.4
+          gradle-version: 9.7.1
 
       - name: Assemble and Check
         run: >
@@ -75,7 +75,7 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
         with:
-          gradle-version: 7.6.6
+          gradle-version: 9.7.1
 
       - name: Assemble and Check
         run: >
@@ -116,7 +116,7 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
         with:
-          gradle-version: 7.6.6
+          gradle-version: 9.7.1
 
       - name: Assemble and Check
         run: >
@@ -157,7 +157,7 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
         with:
-          gradle-version: 7.6.6
+          gradle-version: 9.7.1
 
       - name: Assemble and Check
         run: >
@@ -200,7 +200,7 @@ jobs:
         with:
           # Standalone KSP (2.3.0+) needs Gradle 8.2+: the Kotlin DSL in older
           # Gradle cannot read the KSP plugin jar's Kotlin 2.3 metadata.
-          gradle-version: 8.14.5
+          gradle-version: 9.7.1
 
       - name: Assemble and Check
         run: >
@@ -243,7 +243,7 @@ jobs:
         with:
           # Standalone KSP (2.3.0+) needs Gradle 8.2+: the Kotlin DSL in older
           # Gradle cannot read the KSP plugin jar's Kotlin 2.3 metadata.
-          gradle-version: 8.14.5
+          gradle-version: 9.7.1
 
       - name: Assemble and Check
         run: >
@@ -286,7 +286,7 @@ jobs:
         with:
           # Standalone KSP (2.3.0+) needs Gradle 8.2+: the Kotlin DSL in older
           # Gradle cannot read the KSP plugin jar's Kotlin 2.3 metadata.
-          gradle-version: 8.14.5
+          gradle-version: 9.7.1
 
       - name: Assemble and Check
         run: >
